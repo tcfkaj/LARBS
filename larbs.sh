@@ -1,6 +1,6 @@
 #!/bin/sh
-# Luke's Auto Rice Boostrapping Script (LARBS)
-# by Luke Smith <luke@lukesmith.xyz>
+# My (Not Luke's) Version of Luke's Auto Rice Boostrapping Script (NLARBS)
+# by tcfkaj
 # License: GNU GPLv3
 
 ### OPTIONS AND VARIABLES ###
@@ -14,8 +14,8 @@ while getopts ":a:r:b:p:h" o; do case "${o}" in
 	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done
 
-[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
-[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/LukeSmithxyz/LARBS/master/progs.csv"
+[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/tcfkaj/voidrice.git"
+[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/tcfkaj/LARBS/master/progs.csv"
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
 
