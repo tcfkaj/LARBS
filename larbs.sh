@@ -1,12 +1,12 @@
 #!/bin/sh
 # My (Not Luke's) Version of Luke's Auto Rice Boostrapping Script (NLARBS)
-# by tcfkaj
+# modified by tcfkaj
 # License: GNU GPLv3
 
 ### OPTIONS AND VARIABLES ###
 
-dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
-progsfile="https://raw.githubusercontent.com/LukeSmithxyz/LARBS/master/progs.csv"
+dotfilesrepo="https://github.com/tcfkaj/voidrice.git"
+progsfile="https://raw.githubusercontent.com/tcfkaj/LARBS/master/progs.csv"
 aurhelper="yay"
 repobranch="master"
 
@@ -190,14 +190,14 @@ putgitrepo() {
 	sudo -u "$name" cp -rfT "$dir" "$2"
 }
 
-vimplugininstall() {
-	# Installs vim plugins.
-	whiptail --infobox "Installing neovim plugins..." 7 60
-	mkdir -p "/home/$name/.config/nvim/autoload"
-	curl -Ls "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" >  "/home/$name/.config/nvim/autoload/plug.vim"
-	chown -R "$name:wheel" "/home/$name/.config/nvim"
-	sudo -u "$name" nvim -c "PlugInstall|q|q"
-}
+# vimplugininstall() {
+# 	# Installs vim plugins.
+# 	whiptail --infobox "Installing neovim plugins..." 7 60
+# 	mkdir -p "/home/$name/.config/nvim/autoload"
+# 	curl -Ls "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" >  "/home/$name/.config/nvim/autoload/plug.vim"
+# 	chown -R "$name:wheel" "/home/$name/.config/nvim"
+# 	sudo -u "$name" nvim -c "PlugInstall|q|q"
+# }
 
 finalize() {
 	whiptail --title "All done!" \
@@ -270,7 +270,7 @@ putgitrepo "$dotfilesrepo" "/home/$name" "$repobranch"
 rm -rf "/home/$name/.git/" "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
 # Install vim plugins if not alread present.
-[ ! -f "/home/$name/.config/nvim/autoload/plug.vim" ] && vimplugininstall
+# [ ! -f "/home/$name/.config/nvim/autoload/plug.vim" ] && vimplugininstall
 
 # Most important command! Get rid of the beep!
 rmmod pcspkr
